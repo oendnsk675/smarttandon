@@ -1,0 +1,170 @@
+============== client ====================
+sub : 
+- mc/data
+- mc/data/curva
+
+pub :
+- user/control/mode
+- user/control/toggle
+
+============== broker ====================
+sub :
+- mc/data
+- mc/control/toggle
+- user/control/mode
+- user/control/toggle
+
+============== mc ====================
+sub :
+- user/control/mode
+- user/control/toggle
+
+pub :
+- mc/data
+- mc/data/curva
+- mc/control/toggle
+
+========================================
+
+
+============== restApi =================
+============== dashboard================
+name : dashboard
+path : /dashboard
+GET : {
+    endpoint : /user,
+    data : {
+        name,
+        email,
+        photo,
+        info,
+        role,
+        lastMonth,
+        currentMonth,
+        statePompa,
+        stateMode,
+        speechOn,
+        speechOff,
+    }
+    status : 200
+}
+
+=============== analytic ===============
+name : analytic
+path : /analytic
+GET : {
+    endpoint : /user/data-usage,
+    data : {
+        name,
+        photo,
+        info,
+        role,
+        id_data,
+        dataUsage(tgl harus 12-8-21),
+        speechOn,
+        speechOff
+    }
+    status : 200
+}
+DELETE : {
+    endpoint : /data-usage/{id}
+    status : 200
+}
+
+=============== account ===============
+name : account
+path : /account
+GET : {
+    endpoint : /user/account
+    data : {
+        id_user,
+        name,
+        photo,
+        email,
+        key,
+        speechOn,
+        speechOff,
+    }
+    status : 200
+}
+
+PATCH : {
+    endpoint : /user/{id}
+    data : {
+        name,
+        email,
+        speechOn,
+        speechOff,
+    }
+    status : 201, 422
+}
+============== list user =============
+name : account
+path : /account
+GET : {
+    endpoint : list/user/all
+    data : {
+        name,
+        email,
+        role
+    }
+    status : 200
+}
+DELETE : {
+    endpoint : list/user/{id}
+    status : 200
+}
+PATCH : {
+    endpoint : list/user/{id}
+    data : {
+        name,
+        email,
+        role,
+    }
+    status code : 200, 422
+}
+
+============== broker =============
+name : broker
+
+POST : {
+    endpoint : user/notification
+    data : {
+        description,
+        read,
+        key
+    }
+    status code : 201, 404, 500
+}
+
+PATCH : {
+    pompa : {
+        endpoint : /user/control/pompa,
+        data : pompa
+    }
+    mode : {
+        endpoint : /user/control/mode,
+        data : mode
+    }
+    status code : 200, 422
+}
+
+==================================
+setelah jadi analytic
+
+0. bikin table notif(description, read(true/false)) : done
+1.1. bikin table devices(name, topic) : done
+1.2 testing di console dulu : done
+1. munculin toast ketika ada notif baru
+2. bikin fungsi notif di atas pojok kanan
+3. bikin disamping icon notif role user, 
+
+finish
+authorization : done
+how we know the mc client is offlien : done
+
+fitur di atas pojok kanan atas 
+1. fitur mc
+2. fitur check koneksi ke broker
+3. notif
+4. role u/a
