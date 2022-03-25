@@ -4458,10 +4458,10 @@ var options = {
         labels: []
       },
       connection: {
-        // host: '192.168.43.51',
+        host: '192.168.43.51',
         // host: '192.168.1.3',
         // host: '192.168.1.5',
-        host: '192.168.1.2',
+        // host: '192.168.1.2',
         port: 8888,
         endpoint: '/mqtt',
         clean: true,

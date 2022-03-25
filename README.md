@@ -29,20 +29,28 @@ php artisan migrate
 npm install
 ```
 
-5. setelah persiapan selesai , kemudian jalankan server
+5. ganti konfigurasi google console kalian, di file ./resource/js/app.js, dan juga di file.env baris paling bawah
+
+6. ganti hostname broker kalian, menurut ip pc/laptop tempat brokernya berjalan, di file dashboard ./resource/js/views/Dashboard.vue
+
+7. setelah persiapan selesai , kemudian jalankan server
 
 ```sh
 php artisan serve
 ```
 
-6. jika ingin development tampilan, bisa jalankan mix watch nya supaya ketika ada perubahan pada file vue bisa automatis di mix kan, dengan menjalankan
+8. jika ingin development tampilan, bisa jalankan mix watch nya supaya ketika ada perubahan pada file vue bisa automatis di mix kan, dengan menjalankan
 
 ```sh
 npm run watch
 ```
 
+### Note
+jika ada pertanyaan, kontak saya di sayidinaahmadalqososyi@gmail.com
+
+
 ## Kontribusi
-jika temen-temen ingin berkontribusi dengan projek ini, temen bisa fork repositori ini dan tinggal pull jika temen-temen ingin berkontribus, terimakasih.
+jika temen-temen ingin berkontribusi dengan projek ini, temen bisa fork repositori ini dan tinggal pull , terimakasih:)
 
 ## License
 
